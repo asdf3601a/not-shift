@@ -225,7 +225,8 @@ dialog input { width: 100%; margin-top: 14px; }
     .masthead, main { width: 100%; }
     main { flex: 1; display: flex; flex-direction: column; padding-bottom: max(8px, env(safe-area-inset-bottom, 0px)); }
     #personal:not([hidden]), #personalSchedule:not([hidden]), .calendar-panel { flex: 1; display: flex; flex-direction: column; }
-    .calendar:not([hidden]) { flex: 1; grid-auto-rows: minmax(40px, 1fr); }
+    /* Always six week rows (the most any month needs), so 4- and 5-week months get the same cell height as 6-week ones. */
+    .calendar:not([hidden]) { flex: 1; grid-template-rows: repeat(6, minmax(40px, 1fr)); }
     #weekList:not([hidden]) { flex: 1; grid-auto-rows: minmax(46px, 1fr); }
     /* The streak line wraps on narrow phones; reserve two lines so it cannot resize the calendar either. */
     .stat-line { min-height: 3.1em; }
